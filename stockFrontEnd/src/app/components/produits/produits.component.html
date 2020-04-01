@@ -1,0 +1,66 @@
+<div class="main">
+  <h2>Les produits de stock</h2>
+  <div class="produits">
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prix</th>
+          <th>Quantite</th>
+          <th>Option</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of produitsList">
+          <td>{{ item.nom }}</td>
+          <td>{{ item.prix }}</td>
+          <td>{{ item.quantite }}</td>
+          <td>
+            <button>Modifier</button>
+            <button class="suprimer">Suprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <form #f="ngForm" (ngSubmit)="submit(f)">
+      <h3>Ajouter produit</h3>
+      <div class="input_group">
+        <label for="nom">
+          Nom :
+        </label>
+        <input
+          ngModel
+          #nom="ngModel"
+          name="nom"
+          type="text"
+          placeholder="Ex : iphone-X"
+        />
+      </div>
+      <div class="input_group">
+        <label for="prix">Prix :</label>
+        <input
+          ngModel
+          #prix="ngModel"
+          name="prix"
+          type="number"
+          placeholder="Ex : 120.20"
+        />
+      </div>
+      <div class="input_group">
+        <label for="quantite">
+          Quantite :
+        </label>
+        <input
+          ngModel
+          #quantite="ngModel"
+          name="quantite"
+          type="number"
+          placeholder="Ex : 25"
+        />
+      </div>
+      <div class="input_group">
+        <button [disabled]="!f.valid">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</div>
