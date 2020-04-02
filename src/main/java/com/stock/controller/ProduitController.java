@@ -30,6 +30,11 @@ public class ProduitController {
 		return allService.tousLesProduit();
 	}
 	
+	@GetMapping(value="/produitById/{id}")
+	public ProduitDTO getProduitById(@PathVariable(name = "id") Long id){
+		return allService.getProduitById(id);
+	}
+	
 	@PostMapping(value="/ajouter-produit", produces = "application/json")
 	public Produit saveProduit(@RequestBody Produit produit) {
 		return allService.ajouterPdoduit(produit);
@@ -41,8 +46,8 @@ public class ProduitController {
 	}
 	
 	@DeleteMapping(value="/suprimer-produit/{id}")
-	public void deleteProduit(@PathVariable(name = "id") Long id) {
-		 allService.suprimerProduit(id);
+	public Long deleteProduit(@PathVariable(name = "id") Long id) {
+		 return allService.suprimerProduit(id);
 	}
 	
 }

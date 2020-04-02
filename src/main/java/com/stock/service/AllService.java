@@ -39,9 +39,17 @@ public class AllService {
 			produitDto.setQuantite(produit.getQuantite());
 			produitDTOS.add(produitDto);
 		});
-		
 		return produitDTOS;
-		
+	}
+	
+	public ProduitDTO getProduitById(Long id) {
+		Produit produit = produitRepository.getOne(id);
+		ProduitDTO produitDto = new ProduitDTO();
+		produitDto.setId(produit.getId());
+		produitDto.setNom(produit.getNom());
+		produitDto.setPrix(produit.getPrix());
+		produitDto.setQuantite(produit.getQuantite());
+		return produitDto;
 	}
 	
 	public Produit ajouterPdoduit(Produit produit) {
@@ -52,8 +60,9 @@ public class AllService {
 		return produitRepository.saveAndFlush(produit);
 	}
 	
-	public void suprimerProduit(Long id) {
+	public Long suprimerProduit(Long id) {
 		 produitRepository.deleteById(id);
+		 return id;
 	}
 	
 	//Client
@@ -109,22 +118,20 @@ public class AllService {
 			return commandeDTOS;
 		}
 		
-		double prixTotal;
+		/*double prixTotal;
 		protected double total(Commande commande) {
 			prixTotal = 0;
 			commande.getProduits().forEach(produit -> {
 				prixTotal += produit.getPrix() * produit.getQuantite();
 			});
 			return prixTotal;
-		}
+		}*/
 		
 		public Commande ajouterCommande(Commande commande) {
-			commande.setPrixTotal(total(commande));
 			return commandeRepository.save(commande);
 		}
 		
 		public Commande modifierCommande(Commande commande) {
-			commande.setPrixTotal(total(commande));
 			return commandeRepository.saveAndFlush(commande);
 		}
 		

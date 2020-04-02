@@ -8,4 +8,5 @@ import com.stock.model.Commande;
 @Repository
 public interface CommandeRepository extends JpaRepository<Commande, Long>{
 
+	
 }

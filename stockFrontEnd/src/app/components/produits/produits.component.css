@@ -8,36 +8,43 @@
     rgba(255, 255, 255, 1) 100%
   ); */
 }
+
 h2 {
   text-align: center;
   background-color: rgb(245, 235, 235);
   padding: 20px;
   font-size: 35px;
+  margin-top: 10px;
 }
+
 .produits {
   display: flex;
   justify-content: space-evenly;
 }
+
 table {
   border-collapse: collapse;
   font-size: 0.9em;
   min-width: 400px;
   margin: 25px 0px;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0px 0px;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   width: 700px;
   height: 200px;
 }
+
 thead tr {
   background-color: #009879;
   color: white;
   text-align: left;
 }
+
 th,
 td {
   padding: 12px 15px;
 }
+
 tbody tr {
   border-bottom: 1px solid #dddddd;
 }
@@ -60,22 +67,26 @@ form {
   border-bottom: 2px solid #009879;
   max-height: 300px;
 }
+
 form h3 {
   background-color: #009879;
   text-align: center;
   color: white;
   padding: 10px;
 }
+
 .input_group {
   padding: 10px;
   width: 100%;
   text-align: center;
 }
+
 .input_group label {
   width: 30%;
   display: inline-block;
   text-align: left;
 }
+
 .input_group input {
   width: 50%;
   padding: 5px;
@@ -100,6 +111,7 @@ button:hover {
   color: white;
   cursor: pointer;
 }
+
 button.suprimer:hover {
   background-color: red;
 }

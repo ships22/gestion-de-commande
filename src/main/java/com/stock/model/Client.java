@@ -15,7 +15,7 @@ import javax.validation.constraints.Email;
 
 import org.hibernate.validator.constraints.UniqueElements;
 
-@Table( name ="client" , uniqueConstraints= @UniqueConstraint(columnNames= {"email"}))
+@Table( name ="client")
 @Entity
 public class Client {
 

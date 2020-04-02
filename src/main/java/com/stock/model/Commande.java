@@ -23,7 +23,7 @@ public class Commande {
 	
 	private double prixTotal;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne
 	@JoinTable(name = "commande_client",
     joinColumns = @JoinColumn(name = "commande_id", referencedColumnName ="id"),
     inverseJoinColumns = @JoinColumn(name = "client_id" , referencedColumnName="id"))

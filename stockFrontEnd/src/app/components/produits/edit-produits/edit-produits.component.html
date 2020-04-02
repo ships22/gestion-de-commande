@@ -1,0 +1,25 @@
+<div class="main">
+    <h2 class="animated flash">Modifier produit</h2>
+
+    <section class="right">
+        <h3>Produit</h3>
+        <form #f="ngForm" (ngSubmit)="modifierProduit(produit)" *ngIf="produit">
+            <div class="input_group">
+                <label for="name">Nom : </label>
+                <input [(ngModel)]="produit.nom" #nom="ngModel" name="nom" type="text" id="name" required minlength="3" maxlength="25"
+                />
+            </div>
+            <div class="input_group">
+                <label for="prix">Prix : </label>
+                <input [(ngModel)]="produit.prix" #prix="ngModel" name="prix" type="number" id="price" required minlength="1"
+                />
+            </div>
+            <div class="input_group">
+                <label for="quantite">Quantite : </label>
+                <input [(ngModel)]="produit.quantite" #quantite="ngModel" name="quantite" type="number" id="quantite" required minlength="1"
+                />
+            </div>
+            <button [disabled]="!f.valid">Submit</button>
+        </form>
+    </section>
+</div>

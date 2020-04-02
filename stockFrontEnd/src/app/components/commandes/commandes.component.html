@@ -1,1 +1,38 @@
-<p>commandes works!</p>
+<div class="main">
+  <h2>Les commandes</h2>
+  <div class="produits">
+    <table>
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>E-mail</th>
+          <th>Produit(s)</th>
+          <th>Prix total</th>
+          <th>Option</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let commande of commandes">
+          <td>{{ commande.client.nom }}</td>
+          <td>{{ commande.client.email }}</td>
+          <td>
+            <ng-container *ngFor="let produit of commande.produits">
+              <span>
+                {{ produit.nom }} - {{ produit.prix | currency: "EUR" }} - Qty :
+                reste à faire
+                <!-- {{ produit.quantite }} -->
+              </span>
+            </ng-container>
+          </td>
+          <td>{{ commande.prixTotal | currency: "EUR" }}</td>
+          <!-- <td>{{ item.prix | currency: "EUR" }}</td> -->
+          <!-- <td>{{ item.quantite }}</td> -->
+          <td>
+            <button>Valider</button>
+            <button class="suprimer">Suprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

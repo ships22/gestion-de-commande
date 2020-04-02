@@ -10,6 +10,7 @@ import { ProduitsComponent } from "./components/produits/produits.component";
 import { ClientsComponent } from "./components/clients/clients.component";
 import { CommandesComponent } from "./components/commandes/commandes.component";
 import { AllService } from "./services/all.service";
+import { EditProduitsComponent } from './components/produits/edit-produits/edit-produits.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AllService } from "./services/all.service";
     HeaderComponent,
     ProduitsComponent,
     ClientsComponent,
-    CommandesComponent
+    CommandesComponent,
+    EditProduitsComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [AllService],

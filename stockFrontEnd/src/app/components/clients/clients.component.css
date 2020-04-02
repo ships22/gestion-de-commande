@@ -1,0 +1,214 @@
+.main {
+    height: calc(100vh - 180px);
+    width: 100vw;
+}
+
+h2 {
+    text-align: center;
+    background-color: rgb(245, 235, 235);
+    padding: 20px;
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+div.flexBox {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* .produits {
+    display: flex;
+    justify-content: space-evenly;
+} */
+table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    min-width: 400px;
+    margin: 25px 0px;
+    border-radius: 5px 5px 0px 0px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 700px;
+    height: 200px;
+}
+
+thead tr {
+    background-color: #009879;
+    color: white;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 12px 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.cart {
+    min-width: 400px;
+    margin: 25px 0px;
+    border-radius: 5px 5px 0 0;
+    /* overflow: hidden; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 400px;
+    border-bottom: 2px solid #009879;
+    max-height: 400px;
+}
+
+h2.panier {
+    height: 50px;
+    font-size: 25px;
+    line-height: 50px;
+    padding: 5px 0px;
+    background-color: #009879;
+    color: white;
+    margin-bottom: 0;
+}
+
+h3 {
+    background-color: #05fdcb;
+    text-align: center;
+    padding: 5px;
+    font-weight: 100;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.item {
+    height: 100px;
+}
+
+form h3 {
+    background-color: #009879;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+.input_group {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.input_group label {
+    width: 30%;
+    display: inline-block;
+    text-align: left;
+}
+
+.input_group input {
+    width: 50%;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 4px;
+    box-shadow: none;
+    border: 1px solid #009879;
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    font-size: 15px;
+    background-color: white;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #009879;
+    color: white;
+    cursor: pointer;
+}
+
+button.suprimer:hover {
+    background-color: red;
+}
+
+h4.total {
+    /* bottom: 30px; */
+    border-bottom: 3px solid white;
+    border-top: 1px solid black;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    background-color: rgb(241,
+            252,
+            231);
+}
+
+.cart_produit {
+    height: 260px;
+    overflow: scroll;
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+.cart_produit p {
+    margin-bottom: 2px;
+}
+
+.cart_produit button {
+    height: 25px;
+    width: 40px;
+    padding: 0;
+    margin: 3px;
+}
+
+.description {
+    position: relative;
+}
+
+button.cancel {
+    background: red;
+    position: absolute;
+    right: 8px;
+    top: -5px;
+    width: 15px;
+    height: 25px;
+    font-size: 12px;
+    color: white;
+}
+
+#valider {
+    height: 30px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* PopUp */
+.close {
+    height: 30px;
+    width: 30px;
+    font-size: 18px;
+    margin: 8px;
+    line-height: 20px;
+    padding: 5px;
+}
+
+.close:hover {
+    background-color: rgb(233,
+            34,
+            34);
+}
+
+.btn-secondary {
+    color: black;
+    width: 120px;
+}

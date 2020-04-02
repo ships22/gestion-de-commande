@@ -23,22 +23,22 @@ public class ClientController {
 	private AllService allService;
 	
 	@GetMapping(value="/client")
-	public List<ClientDTO>getAllProduit(){
+	public List<ClientDTO>getAllClient(){
 		return allService.touteLesClient();
 	}
 	
 	@PostMapping(value="/ajouter-client", produces = "application/json")
-	public Client saveProduit(@RequestBody Client client) {
+	public Client saveClient(@RequestBody Client client) {
 		return allService.ajouterClient(client);
 	}
 	
 	@PutMapping(value="/modifier-client")
-	public Client updateProduit(@RequestBody Client client) {
+	public Client updateClient(@RequestBody Client client) {
 		return allService.modifierClient(client);
 	}
 	
 	@DeleteMapping(value="/suprimer-client/{id}")
-	public void deleteProduit(@PathVariable(name = "id") Long id) {
+	public void deleteClient(@PathVariable(name = "id") Long id) {
 		 allService.suprimerClient(id);
 	}
 

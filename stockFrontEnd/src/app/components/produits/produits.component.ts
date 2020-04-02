@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Produits } from "../../models/produits";
 import { AllService } from "src/app/services/all.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-produits",
@@ -9,21 +10,30 @@ import { AllService } from "src/app/services/all.service";
 })
 export class ProduitsComponent implements OnInit {
   produitsList: Produits[];
-  constructor(private httService: AllService) {}
+  constructor(private httpService: AllService, private router: Router) {}
 
   ngOnInit() {
     this.getAllProduit();
   }
-
   getAllProduit() {
-    this.httService.getAllProduits().subscribe(res => {
+    this.httpService.getAllProduits().subscribe(res => {
       this.produitsList = res;
     });
   }
-  submit(form) {
-    this.httService
-      .ajouterProduit(form.value)
+  addProduit(item) {
+    this.httpService
+      .ajouterProduit(item.value)
       .subscribe(res => this.produitsList.push(res));
-    console.log("test submit :", form.value);
+  }
+  editProduit(id) {
+    this.router.navigate(["/edit-produit", id]);
+  }
+  delete(item) {
+    this.httpService
+      .deleteItem(item)
+      .subscribe(
+        res =>
+          (this.produitsList = this.produitsList.filter(data => data.id != res))
+      );
   }
 }

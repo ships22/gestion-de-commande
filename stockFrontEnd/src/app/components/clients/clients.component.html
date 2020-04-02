@@ -1,1 +1,132 @@
-<p>clients works!</p>
+<div class="main">
+  <h2 class="title_page">Commander ici</h2>
+  <div class="flexBox">
+    <div class="produits">
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Disponible</th>
+            <th>Option</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of produits">
+            <td>{{ item.nom }}</td>
+            <td>{{ item.prix | currency: "EUR" }}</td>
+            <td>{{ item.quantite }}</td>
+            <td>
+              <button class="add" (click)="addToCart(item)">Ajouter</button>
+              <!-- <p class="added animated flash" *ngIf="item.added">
+                Produit ajouté
+              </p> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cart">
+      <h2 class="panier">Panier</h2>
+      <h3 *ngIf="!cart.length > 0" class="animated fadeIn">
+        Le panier est vide!
+      </h3>
+      <h3 *ngIf="cart.length > 0" class="animated rollIn">
+        Produit ajouté
+      </h3>
+      <div class="cart_produit">
+        <div class="item animated lightSpeedIn" *ngFor="let produit of cart">
+          <section class="description">
+            <button class="cancel" (click)="cancelItem(produit.id)">X</button>
+            <p>Nom : {{ produit.nom }}</p>
+            <p>Qty :{{ produit.qty }}</p>
+            <p>Prix : {{ produit.prix | currency: "EUR" }}</p>
+          </section>
+          <button (click)="removeItem(produit.id)">-</button>
+          <button (click)="addItem(produit.id)">+</button>
+        </div>
+      </div>
+      <h4 class="total">Total: {{ t }}</h4>
+      <button
+        id="valider"
+        data-toggle="modal"
+        data-target="#clientDetails"
+        [disabled]="!cart.length"
+      >
+        Passer la commande
+      </button>
+    </div>
+
+    <div class="popUp">
+      <!-- Popup Modal -->
+      <div
+        class="modal fade"
+        id="clientDetails"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="ModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalLabel">
+                Nom et adresse e-mail s'il vous plaît :
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form #f="ngForm" (ngSubmit)="validateOrder(f.value)">
+              <div class="modal-body">
+                <div class="input_group">
+                  <label for="nom">
+                    Nom :
+                  </label>
+                  <input
+                    ngModel
+                    #nom="ngModel"
+                    name="nom"
+                    type="text"
+                    placeholder="Ships haq"
+                    id="nom"
+                    required
+                  />
+                </div>
+                <div class="input_group">
+                  <label for="email">
+                    Email :
+                  </label>
+                  <input
+                    ngModel
+                    #nom="ngModel"
+                    name="email"
+                    id="email"
+                    type="text"
+                    onfocus="this.value=''"
+                    placeholder="Ex : example@mail.com"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="submit"
+                  class="btn btn-secondary"
+                  [disabled]="!f.valid"
+                >
+                  Valider
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
